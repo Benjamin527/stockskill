@@ -18,21 +18,6 @@ Use this skill to turn a market idea into a ZhaoGe-style decision frame:
 
 This is a trading-learning framework, not a signal service. Do not promise returns. Do not present any price as guaranteed. Do not encourage oversized or emotional trades.
 
-Recent additions to preserve in future analyses:
-
-- `模式切换优先`: first decide whether the tape has switched regime; do not reuse yesterday's playbook automatically.
-- `单边下跌里的小V`: in a one-way down tape, the trade is often `急跌吸 -> 小V先出一半 -> 夜盘/下一波再看是否接回`, not blind diamond-hands.
-- `3:30 pm 尾盘确认`: tail-session structure is a core filter; when the day tends to end near the low, earlier hero entries carry less edge.
-- `真空期 vs 落地日`: event windows can have a relatively safer "nothing-happens-yet" session before the real decision day; distinguish pre-event calm from post-event distribution risk.
-- `被动减是时间窗`: passive-reduction is not just a headline; treat it as a multi-session window where gap fills, lower retests, and phased rebuilding matter more than chasing the first rebound.
-- `被动减前先规避`: if a passive-reduction window is near and the catalyst result is still unknown, default to `先不做/只留底仓`, then reassess after the first real outcome.
-- `周内节奏记忆`: treat `周一周二 / 周三 / 周四周五 / 周末夜盘` as a live rhythm hypothesis when the same tape behavior keeps repeating, but invalidate it quickly if the week breaks pattern.
-- `亚洲先行链`: `韩国/A股/港股 -> 夜盘 -> 盘前 -> 美股开盘` can act as a lead-lag filter for risk appetite, especially in macro- or crypto-sensitive tapes.
-- `开盘冲高与尾盘强平`: many tapes have `开盘前30-60分钟冲高减` and `3:00-3:30 pm 强平小V吸` behavior; use these as execution windows, not blind signals.
-- `转弯/直线语言`: distinguish `直线拉升可分批减` from `转弯确认再回吸`; the framework should preserve this tape-reading vocabulary in reusable form.
-- `结果驱动，不赌过程`: for talks, votes, and weekend speeches, separate `等待结果` from `结果落地后再选方向`; many sessions are best handled with reduced risk or only a base position.
-- `IPO价差失真不参与`: if IPO pricing, auction pricing, or access tiers create an obviously unfair ladder, prefer `不参与` over chasing after listing.
-
 ## Required Safety Rules
 
 - For `current` / `today` / `latest` prices, news, earnings, Fed events, calendars, or options data, verify with current sources first.
@@ -57,6 +42,27 @@ Default analysis order:
 6. Check whether there is a gap, passive-reduction window, weekend risk, or known selling-overhang event.
 7. Confirm with index, sector, leaders, turnover, night/pre-market, and event context.
 8. Scale by phases; do not let one name dominate the account.
+
+If the user is continuing a prior setup with new price action, update in this order before giving a fresh answer:
+
+1. Re-check current price versus `L1`, `二次回踩区`, `不追价区`, and `失效价`.
+2. Re-check whether tail-session structure or the most recent retest changed the regime call.
+3. Re-check whether event state changed from `真空期` to `落地日/落地后`.
+4. Only then update the decision level.
+
+## Regime Detection Flow
+
+Use this decision order before applying overlays:
+
+1. Ask: is there an unresolved major event, vote, speech, dilution, lockup, or weekend binary risk?
+   - If yes, start with `事件驱动`, then decide whether it is `真空期 / 落地日 / 落地后分配期`.
+2. If not, ask: are index + sector + leaders making repeated fresh lows with weak rebounds?
+   - If yes, classify as `单边下跌`.
+3. If not, ask: is price action choppy, repetitive, and lacking clean range expansion?
+   - If yes, classify as `存量震荡`.
+4. If not, ask: has price extended fast away from support/retest zones with crowding risk?
+   - If yes, classify as `情绪过热`.
+5. If the answer is mixed, downgrade confidence and default to the more defensive regime until the tape clarifies.
 
 Regime notes:
 
@@ -108,29 +114,40 @@ When rules conflict, resolve them in this order:
 
 Use these as conditional plugins, not foundational truth. They should only activate when the matching environment is clearly present.
 
+### Event Filters
+
 - `被动减/节日减仓`: after a strong event-driven high, assume US funds may reduce around holiday or passive-flow windows. Prefer taking strength first, then watch whether the passive-reduction gap is filled before rebuilding.
 - `被动减时间窗`: when a catalyst date overlaps with holiday flow, policy uncertainty, fund rebalance, or forced/passive selling, think in a `multi-day to multi-week` window rather than one candle. The first drop may only open the window.
-- `减持/出货标的`: random intraday sell pressure can appear on rallies. Mark the first and second lower gaps, wait near gap-fill zones, and prefer stock over leveraged ETFs or options on the first bad-news day.
-- `缺口回补`: a near-fill is not a full fill. If the low stops just above the gap, label it `接近缺口` and wait for the next event, retest, or tail-session reclaim before treating it as complete.
-- `财报堆高出货`: when a name rallies into earnings or rises on non-operating news while fundamentals are weak, treat the first pop as inventory-distribution risk. Wait for post-event digestion or a lower reclaim.
+- `真空期安全感`: when a major event has not yet resolved, the session before the resolution can sometimes be calmer than the resolution day itself. Do not treat that calm as proof that the post-event tape is safe.
+- `结果后再做`: when talks, policy votes, or leadership speeches have not yet produced a usable conclusion, default to `等结果，不抢跑`; after the result, trade the first clean direction instead of the rumor phase.
+- `投票机制分阶段`: treat `第一阶段通过` and `最终通过` as different states. Stage one can create a relief move, but it does not automatically complete the thesis.
+- `投票失败未必最难做`: in repeated crypto-policy tapes, a failed vote can reset price toward old support and restore the previous swing template rather than making the name untradeable.
+
+### Execution Timing
+
 - `慢牛开盘回踩`: in a narrowing slow-bull tape, the cleaner buy point is often the open pullback. If missed and price has already lifted far from the pullback, mark `不追`.
 - `单边下跌小V`: in a one-way down tape, a usable play is often `急跌试探 -> 小V减半 -> 等夜盘/次日再判断`, instead of converting immediately into a swing thesis.
 - `3:30最低点记忆`: if the market repeatedly prints late-session lows around `3:30 pm` or later, treat that as a live pattern memory. Demand stronger evidence before calling the low early.
-- `真空期安全感`: when a major event has not yet resolved, the session before the resolution can sometimes be calmer than the resolution day itself. Do not treat that calm as proof that the post-event tape is safe.
-- `结果后再做`: when talks, policy votes, or leadership speeches have not yet produced a usable conclusion, default to `等结果，不抢跑`; after the result, trade the first clean direction instead of the rumor phase.
-- `币圈预警`: for crypto-related equities, BTC/ETH turning points and straight-line warning moves are leading context. A first crypto alert often needs repeat testing; use Monday or the next equity session for second confirmation after weekend movement.
-- `投票机制分阶段`: treat `第一阶段通过` and `最终通过` as different states. Stage one can create a relief move, but it does not automatically complete the thesis.
-- `投票失败未必最难做`: in repeated crypto-policy tapes, a failed vote can reset price toward old support and restore the previous swing template rather than making the name untradeable.
-- `只做弹性大`: when market opportunity narrows, prioritize liquid names with obvious elasticity and clear catalysts; avoid unrelated consumer/defensive names when the macro input hurts their demand or margins.
-- `硬件强于软件`: if AI capex, export approvals, or data-center headlines are the active driver, prefer chips, infra, and hardware elasticity; many software names need separate proof and should not be assumed to follow.
-- `先调整先到位`: when a basket is rolling over together, the name that started adjusting earlier can reach a usable zone earlier; laggards may still have room to fall.
-- `整数位/事件高点`: large round numbers and obvious event highs should be treated as candidate distribution or control zones, not automatically as breakout proof.
-- `周内节奏`: if the same environment repeatedly shows `周一周二偏修复 / 周三看讲话 / 周四周五偏回调`, keep it as a working rhythm, but only until price action breaks it.
-- `亚洲先行观察`: when macro tension is driving the tape, compare `韩国/A股/港股` open-to-close behavior with US night/pre-market. `低开低走` and `低开高走` imply different US execution plans.
-- `A股港股提前规避`: when Asia cash markets sell first because they cannot wait for late headlines, treat that as an early warning rather than dismissing it because US equities are still holding.
 - `开盘冲高减 / 尾盘强平吸`: after panic sessions or passive-reduction windows, an opening squeeze can be for trimming, while the better rebuy often comes near forced-liquidation timing late in the session.
 - `直线转弯`: a straight-line move into resistance is often a partial-take-profit zone; a meaningful `转弯` after retest is stronger than a mid-move guess.
 - `低吸两份，冲高卖一份`: when the tape is still tradable but not fully repaired, use phased inventory management instead of all-in/all-out thinking.
+
+### Market Context Plugins
+
+- `周内节奏`: if the same environment repeatedly shows `周一周二偏修复 / 周三看讲话 / 周四周五偏回调`, keep it as a working rhythm, but only until price action breaks it.
+- `亚洲先行观察`: when macro tension is driving the tape, compare `韩国/A股/港股` open-to-close behavior with US night/pre-market. `低开低走` and `低开高走` imply different US execution plans.
+- `A股港股提前规避`: when Asia cash markets sell first because they cannot wait for late headlines, treat that as an early warning rather than dismissing it because US equities are still holding.
+- `只做弹性大`: when market opportunity narrows, prioritize liquid names with obvious elasticity and clear catalysts; avoid unrelated consumer/defensive names when the macro input hurts their demand or margins.
+- `先调整先到位`: when a basket is rolling over together, the name that started adjusting earlier can reach a usable zone earlier; laggards may still have room to fall.
+- `整数位/事件高点`: large round numbers and obvious event highs should be treated as candidate distribution or control zones, not automatically as breakout proof.
+
+### Instrument-Specific Plugins
+
+- `减持/出货标的`: random intraday sell pressure can appear on rallies. Mark the first and second lower gaps, wait near gap-fill zones, and prefer stock over leveraged ETFs or options on the first bad-news day.
+- `缺口回补`: a near-fill is not a full fill. If the low stops just above the gap, label it `接近缺口` and wait for the next event, retest, or tail-session reclaim before treating it as complete.
+- `财报堆高出货`: when a name rallies into earnings or rises on non-operating news while fundamentals are weak, treat the first pop as inventory-distribution risk. Wait for post-event digestion or a lower reclaim.
+- `币圈预警`: for crypto-related equities, BTC/ETH turning points and straight-line warning moves are leading context. A first crypto alert often needs repeat testing; use Monday or the next equity session for second confirmation after weekend movement.
+- `硬件强于软件`: if AI capex, export approvals, or data-center headlines are the active driver, prefer chips, infra, and hardware elasticity; many software names need separate proof and should not be assumed to follow.
 - `重复敞口择一`: when two vehicles express nearly the same catalyst exposure, prefer the cleaner or more liquid one rather than doubling risk through duplicated proxies.
 
 These overlays are examples of stage-specific edge:
