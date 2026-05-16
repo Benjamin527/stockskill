@@ -32,6 +32,8 @@ Recent additions to preserve in future analyses:
 - `转弯/直线语言`: distinguish `直线拉升可分批减` from `转弯确认再回吸`; the framework should preserve this tape-reading vocabulary in reusable form.
 - `结果驱动，不赌过程`: for talks, votes, and weekend speeches, separate `等待结果` from `结果落地后再选方向`; many sessions are best handled with reduced risk or only a base position.
 - `IPO价差失真不参与`: if IPO pricing, auction pricing, or access tiers create an obviously unfair ladder, prefer `不参与` over chasing after listing.
+- `投票高低点节奏`: in repeated vote-driven tapes, highs often form during the first round while the process is still being priced, and tradeable lows often appear when the next vote date changes from vague to explicit.
+- `时间模糊期先降风险`: when the next catalyst date is unknown, treat that uncertainty itself as pressure; when the next date becomes clear, the market may stabilize even before the final outcome improves.
 
 ## Required Safety Rules
 
@@ -98,6 +100,8 @@ Use these as conditional patterns, not fixed signals:
 - `币圈预警`: for crypto-related equities, BTC/ETH turning points and straight-line warning moves are leading context. A first crypto alert often needs repeat testing; use Monday or the next equity session for second confirmation after weekend movement.
 - `投票机制分阶段`: treat `第一阶段通过` and `最终通过` as different states. Stage one can create a relief move, but it does not automatically complete the thesis.
 - `投票失败未必最难做`: in repeated crypto-policy tapes, a failed vote can reset price toward old support and restore the previous swing template rather than making the name untradeable.
+- `投票高低点节奏`: highs often appear while the first vote is still being priced, and lows often become more tradable when the next vote date changes from vague to explicit.
+- `时间模糊期先降风险`: if the next catalyst date is still unclear, treat that uncertainty itself as a risk factor and avoid forcing size before the next time anchor is known.
 - `只做弹性大`: when market opportunity narrows, prioritize liquid names with obvious elasticity and clear catalysts; avoid unrelated consumer/defensive names when the macro input hurts their demand or margins.
 - `硬件强于软件`: if AI capex, export approvals, or data-center headlines are the active driver, prefer chips, infra, and hardware elasticity; many software names need separate proof and should not be assumed to follow.
 - `先调整先到位`: when a basket is rolling over together, the name that started adjusting earlier can reach a usable zone earlier; laggards may still have room to fall.
@@ -128,6 +132,7 @@ Before giving buy zones, check:
 - Whether the market is still in `结果未落地的真空期`
 - Earnings, dilution, lockup, insider/fund selling, passive reduction, Fed speech, holiday, option expiration
 - Whether a catalyst is `单次结果` or `多阶段投票/多轮讲话`
+- Whether the next event date is still vague or has become explicit
 - Gaps below/above current price and whether each gap is fully filled or only nearly touched
 - Weekend/holiday exposure and whether futures or crypto will keep trading while equities are closed
 - Options activity and IV: whether large money is still active in options or has shifted back to stock
@@ -195,6 +200,7 @@ When the setup involves options:
 - `SOXL / leveraged ETFs`: wider swings, smaller size, stricter chase discipline
 - `Crypto-related equities`: watch BTC/ETH direction, crypto turnover, weekend behavior, alert/retest behavior, and gap/reclaim structure
 - `Crypto vote names`: separate `第一阶段投票博弈` from `最终立法博弈`; a stage-one pass can justify relief, while failure can mean a reset toward old support and another swing cycle.
+- `Crypto vote names`: highs often appear during first-round pricing, while lows often become cleaner when the next vote date is finally clarified.
 - `Macro-sensitive or war-headline tapes`: compare BTC with `韩国/A股/港股` and US pre-market; if all lead markets stay weak, demand more patience before calling a low.
 - `Selling-overhang names`: LITE/HOOD-style patterns should prioritize lower gaps, full gap-fill quality, and random rally selling risk.
 - `Event-pop names`: IREN/RKLB-style earnings or partnership pops can be distribution first and buyable only after digestion/reclaim.
