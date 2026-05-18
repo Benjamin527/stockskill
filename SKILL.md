@@ -18,6 +18,11 @@ Use this skill to turn a market idea into a ZhaoGe-style decision frame:
 
 This is a trading-learning framework, not a signal service. Do not promise returns. Do not present any price as guaranteed. Do not encourage oversized or emotional trades.
 
+Default stance to preserve:
+
+- Treat this style as `高波动环境下的事件驱动交易框架`, not long-only value investing.
+- Prefer `资金行为 -> 价格结构 -> 事件催化 -> 叙事解释` when these signals conflict.
+
 Recent additions to preserve in future analyses:
 
 - `模式切换优先`: first decide whether the tape has switched regime; do not reuse yesterday's playbook automatically.
@@ -170,6 +175,7 @@ For high-volatility names, widen the zone and reduce the size. Do not widen the 
 - Second handshake confirmed: add only in phases, not all at once
 - Single name default ceiling: do not let one name dominate the account
 - Separate `主仓` and `T仓` when the user is already holding
+- If the user is discussing a high-odds swing versus a speculative flyer, separate `主交易仓` from `彩票仓`; keep the latter small and usually shorter-horizon
 - In unstable but tradable tapes, a useful default is `低吸的仓位先按一部分做T，一部分保留观察`, rather than deciding everything with one order
 - If the trade is driven by event uncertainty, keep more cash than usual
 - In binary event windows, `2-3成底仓 + 结果后再决策` is often cleaner than trying to optimize every rumor swing
