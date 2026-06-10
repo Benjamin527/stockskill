@@ -39,6 +39,11 @@ Recent additions to preserve in future analyses:
 - `IPO价差失真不参与`: if IPO pricing, auction pricing, or access tiers create an obviously unfair ladder, prefer `不参与` over chasing after listing.
 - `投票高低点节奏`: in repeated vote-driven tapes, highs often form during the first round while the process is still being priced, and tradeable lows often appear when the next vote date changes from vague to explicit.
 - `时间模糊期先降风险`: when the next catalyst date is unknown, treat that uncertainty itself as pressure; when the next date becomes clear, the market may stabilize even before the final outcome improves.
+- `指数先行`: if SPY/QQQ/SPX are still accelerating lower or leaders have not turned, individual-stock buy zones are only candidates, not confirmed entries.
+- `买点是区域不是点位`: treat gaps, prior lows, analyst-value zones, moving averages, and round numbers as candidate support zones; require price behavior near the zone instead of treating an exact print as a signal.
+- `第一低点只记录`: the first sharp-drop low is for mapping L1 and possible light test only; conviction comes from retest quality, late-session behavior, and broader-market confirmation.
+- `反弹先按修复处理`: the first bounce after a sharp drop is usually technical repair; trim into moving averages, resistance, or straight-line rebounds before upgrading it into a swing thesis.
+- `事件前降敞口`: before CPI/FOMC/earnings/monthly expiration/holiday or binary results, reduce position pressure and wait for the market's reaction after the result instead of guessing the result.
 
 ## Required Safety Rules
 
@@ -58,12 +63,14 @@ Default analysis order:
 
 1. Classify the instrument and timeframe.
 2. Decide whether the market is `存量震荡 / 单边下跌 / 事件驱动 / 情绪过热`.
-3. Find `第一低点 L1`, but do not assume it is the final low.
-4. Check whether tail-session behavior, especially after `3:30 pm` local market time, supports stabilization.
-5. Wait for `二次握手`: a second pullback near `L1` that does not effectively break it.
-6. Check whether there is a gap, passive-reduction window, weekend risk, or known selling-overhang event.
-7. Confirm with index, sector, leaders, turnover, night/pre-market, and event context.
-8. Scale by phases; do not let one name dominate the account.
+3. Check index and leader confirmation first: if SPY/QQQ/SPX and sector leaders have not stopped falling, keep individual names at `观察` or `轻仓试探`.
+4. Map candidate support zones: gap, prior low, moving average, analyst-value zone, event high/low, round number.
+5. Find `第一低点 L1`, but do not assume it is the final low.
+6. Check whether tail-session behavior, especially after `3:30 pm` local market time, supports stabilization.
+7. Wait for `二次握手`: a second pullback near `L1` that does not effectively break it.
+8. Check whether there is a gap, passive-reduction window, weekend risk, or known selling-overhang event.
+9. Confirm with index, sector, leaders, turnover, night/pre-market, options flow, and event context.
+10. Scale by phases; do not let one name dominate the account.
 
 Regime notes:
 
@@ -76,6 +83,8 @@ Regime notes:
 
 - Do not rush into the first drop.
 - First low is for `记录` first, not for full-size entry.
+- A candidate buy zone is not an entry by itself; require stabilization, reclaim, retest, or late-session confirmation.
+- Index weakness overrides individual-stock cheapness; when the broad tape keeps falling, stay at `观察/试探` unless the user explicitly wants intraday risk.
 - Tail-session confirmation matters more than intraday noise.
 - No second handshake, no confident add.
 - In a single-side downtrend, late entries are usually safer than early hero trades.
@@ -83,6 +92,7 @@ Regime notes:
 - If the tape is `单边下跌 + 尾盘继续走弱`, default to `先等确认` over averaging down.
 - In a choppy market, prefer stock or smaller sizing over short-dated options.
 - If price already bounced far away from `L1` without retest, mark it `不追，等回踩`.
+- Treat the first bounce into a moving average, prior support-turned-resistance, or straight-line rebound as a partial-trim zone unless it digests and reclaims.
 - For names with selling-overhang, dilution, insider/fund trimming, or post-catalyst distribution risk, focus on lower gaps and retests; do not buy strength just because the story is good.
 - In a slow bull tape, prefer simple pullbacks at/near the open over complicated late chase entries.
 - Before weekends or holidays, reduce the burden of proof for avoiding new risk; if crypto or futures continue trading while stocks are closed, use the next session to confirm.
@@ -118,6 +128,10 @@ Use these as conditional patterns, not fixed signals:
 - `直线转弯`: a straight-line move into resistance is often a partial-take-profit zone; a meaningful `转弯` after retest is stronger than a mid-move guess.
 - `低吸两份，冲高卖一份`: when the tape is still tradable but not fully repaired, use phased inventory management instead of all-in/all-out thinking.
 - `重复敞口择一`: when two vehicles express nearly the same catalyst exposure, prefer the cleaner or more liquid one rather than doubling risk through duplicated proxies.
+- `指数没转个股不急`: when SPY/QQQ/SPX are still printing lower lows or leaders are breaking, mark individual gaps and value zones as `候选区`; wait for index turn, sector stabilization, or only use very small intraday tests.
+- `候选区承接`: gaps, prior lows, moving averages, analyst-value ranges, and round numbers matter only when price shows support near them: slowed selling, reclaim, second touch holding, volume reversal, or late-session hold.
+- `第一反弹先减半`: after a panic low, the first bounce into a moving average or obvious resistance should usually reduce risk first; only the later retest/reclaim decides whether it can become a swing.
+- `新闻解释降权`: headlines can explain the move after the fact, but the decision frame should prioritize index behavior, support-zone reaction, options/turnover, and event calendar.
 
 ## Market Context Checklist
 
@@ -127,6 +141,7 @@ Before giving buy zones, check:
 - Timeframe: intraday / swing / event trade / earnings trade
 - Current price, recent low, and recent bounce distance from low
 - `QQQ / SPY / sector / leaders` direction
+- Whether SPX/SPY/QQQ have actually turned, or individual names are only bouncing inside broad-market weakness
 - Whether `QQQ` is weaker than `SPY` or leaders are weakening faster than the broad tape
 - Seven sisters behavior when analyzing US tech
 - Whether crypto is acting as a risk-on / risk-off leading indicator
@@ -139,6 +154,7 @@ Before giving buy zones, check:
 - Whether a catalyst is `单次结果` or `多阶段投票/多轮讲话`
 - Whether the next event date is still vague or has become explicit
 - Gaps below/above current price and whether each gap is fully filled or only nearly touched
+- Candidate support zones: gap, prior low, moving average, analyst-value range, round-number support, and whether price actually reacted there
 - Weekend/holiday exposure and whether futures or crypto will keep trading while equities are closed
 - Options activity and IV: whether large money is still active in options or has shifted back to stock
 - Existing position, core-vs-trading inventory, and cash reserve if provided
@@ -157,12 +173,13 @@ Before giving buy zones, check:
 Use these defaults only when the user has not provided a better rule:
 
 - `L1`: the meaningful intraday or recent swing low after a sharp drop
+- `候选低吸区`: gap, prior low, moving average, analyst-value range, round number, or event low; use it as an observation band until support behavior appears
 - `二次回踩区`:
   - ordinary large-cap stocks: `L1` to `L1 + 1.5%`
   - leveraged ETFs / crypto-related equities: `L1` to `L1 + 3%`
 - `试探区`: near `L1`, only if the broader market is no longer accelerating lower
 - `确认区`: after second handshake holds and price starts reclaiming intraday reference levels; late-session reclaim is stronger than midday noise
-- `失效价`: clear break below `L1`, especially with index/sector weakness and failed reclaim
+- `失效价`: clear break below `L1` or the support zone, especially with index/sector weakness, failed reclaim, or renewed leader breakdown
 - `不追价区`: any fast rebound materially above the retest zone without a second test
 - `缺口回补区`: lower gap zone for selling-overhang names. Treat exact fill/reclaim as stronger than a near-touch.
 - `事件高点区`: strong post-catalyst rally into expected passive reduction, holiday risk, or distribution; prefer trimming/reviewing risk over adding.
@@ -173,11 +190,13 @@ For high-volatility names, widen the zone and reduce the size. Do not widen the 
 
 - First touch / first test: `轻仓试探`
 - Second handshake confirmed: add only in phases, not all at once
+- If a setup only has `候选区` without index/sector confirmation, keep it at observation or very small test size.
 - Single name default ceiling: do not let one name dominate the account
 - Separate `主仓` and `T仓` when the user is already holding
 - If the user is discussing a high-odds swing versus a speculative flyer, separate `主交易仓` from `彩票仓`; keep the latter small and usually shorter-horizon
 - In unstable but tradable tapes, a useful default is `低吸的仓位先按一部分做T，一部分保留观察`, rather than deciding everything with one order
 - If the trade is driven by event uncertainty, keep more cash than usual
+- Before major data, Fed events, earnings, monthly expiration, weekends, or holidays, lower exposure unless the user explicitly wants event risk.
 - In binary event windows, `2-3成底仓 + 结果后再决策` is often cleaner than trying to optimize every rumor swing
 - If the name is a leveraged ETF or crypto-related equity, reduce size relative to ordinary large caps
 - If the instrument is options, size smaller again
@@ -228,6 +247,7 @@ Use this when the user asks `什么时候能买`, `什么价格可以买`, `哪�
 
 关键价格：
 - 第一低点 L1：
+- 候选低吸区：
 - 二次回踩区：
 - 试探区：
 - 确认区：
@@ -236,8 +256,9 @@ Use this when the user asks `什么时候能买`, `什么价格可以买`, `哪�
 - 缺口/事件区：
 
 确认条件：
-- 大盘/QQQ/SPY：
+- 大盘/SPX/QQQ/SPY：
 - 板块/七姐妹/龙头：
+- 候选区承接：
 - 亚洲先行链：
 - 真空期/落地日：
 - 成交额/量能：
@@ -255,6 +276,7 @@ Use this when the user asks `什么时候能买`, `什么价格可以买`, `哪�
 风险：
 - 哪些情况说明判断失败
 - 哪些新闻或事件需要暂停
+- 如果只是第一波反弹，哪里先减风险
 ```
 
 ### B. Existing Position Review
